@@ -10,9 +10,8 @@ export const getPosts = async (req, res) => {
     }
 }
 
-
 export const createPost = async (req, res) => {
-    const post = res.body;
+    const post = req.body;
     const newPost = new Posts(post);
     try {
         await newPost.save();

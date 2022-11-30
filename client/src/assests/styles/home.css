@@ -1,0 +1,7 @@
+.home-container{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 75px;
+    margin-left: 66px;
+    margin-top: 33px;
+}
