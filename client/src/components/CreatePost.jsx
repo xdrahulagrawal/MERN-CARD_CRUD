@@ -3,7 +3,7 @@ import FileBase from 'react-file-base64'
 import { _sendPosts } from '../api'
 
 
-function CreatePost() {
+function CreatePost({ isFlag, setFlag }) {
   const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', SelectedFile: '' })
 
   const _handleSubmit = async () => {
@@ -18,7 +18,7 @@ function CreatePost() {
       <input type="text" value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} />
       <input type="text" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })} />
       <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, SelectedFile: base64 })} />
-      <button onClick={_handleSubmit}>Submit</button>
+      <button onClick={() => { _handleSubmit(); setFlag(!isFlag) }}>Submit</button>
     </div>
   )
 }

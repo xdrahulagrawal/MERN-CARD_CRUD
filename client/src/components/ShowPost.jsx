@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { PostContext } from './Home';
 
 function ShowPost() {
-
+  const posts = useContext(PostContext);
   return (
     <div>ShowPost</div>
   )
