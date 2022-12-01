@@ -4,7 +4,7 @@ import { _editPosts, _sendPosts } from '../api'
 import '../assests/styles/createpost.css'
 
 const intinialValue = { creator: '', title: '', message: '', tags: '', SelectedFile: '' }
-function CreatePost({ isFlag, setFlag, allPost, postID, setPostID }) {
+function CreatePost({ isFlag, setFlag, allPost, postID, setPostID,getposts }) {
   const [postData, setPostData] = useState(intinialValue);
 
   const _handleSubmit = async () => {
@@ -12,9 +12,11 @@ function CreatePost({ isFlag, setFlag, allPost, postID, setPostID }) {
       await _editPosts(postID, postData)
       setPostData(intinialValue)
       setPostID('')
+      getposts()
     } else {
       await _sendPosts(postData);
       setPostData(intinialValue)
+      getposts()
     }
   }
 

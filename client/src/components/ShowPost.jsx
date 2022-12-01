@@ -22,14 +22,9 @@ function ShowPost() {
     } }
 
   const _editPostHandle = async (id) => {
-    try {
       setPostID(id)
-      await _editPosts(id);
-      getposts()
-    } catch (error) {
-      console.error('_editPostHandle', error)
-    }
   }
+  
   const _likedPostHandle = async (id) => {
     try {
       await _likedPosts(id);
