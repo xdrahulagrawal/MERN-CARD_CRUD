@@ -27,7 +27,7 @@ function Home() {
   return (
     <div className='home-container'>
       <CreatePost setFlag={setFlag} isFlag={isFlag}/>
-      <PostContext.Provider value={{ allPost }}>
+      <PostContext.Provider value={{ allPost,getposts }}>
         <ShowPost />
       </PostContext.Provider>
     </div>

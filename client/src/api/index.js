@@ -2,12 +2,28 @@ import axios from 'axios';
 
 const URL = 'http://localhost:5000/posts'
 export const _getPosts = async () => {
-    const response = await axios.get(URL)
-    return response ? response.data : []
+    try {
+        const response = await axios.get(URL)
+        return response ? response.data : []
+    } catch (error) {
+        console.error("_getPosts", error)
+    }
 }
 
-
 export const _sendPosts = async (data) => {
-    const response = await axios.post(`${URL}/new`,data)
-    return response ? response.data : []
+    try {
+        const response = await axios.post(`${URL}/new`, data)
+        return response ? response.data : []
+    } catch (error) {
+        console.error("_sendPosts", error)
+    }
+}
+
+export const _deletePosts = async (id) => {
+    try {
+        const response = await axios.delete(`${URL}/delete/${id}`)
+        return response.status===200 ? response.data : []
+    } catch (error) {
+        console.error("_sendPosts", error)
+    }
 }
