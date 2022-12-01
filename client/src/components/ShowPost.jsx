@@ -1,10 +1,18 @@
 import React, { useContext } from 'react'
 import { PostContext } from './Home';
+import '../assests/styles/showpost.css'
 
 function ShowPost() {
-  const posts = useContext(PostContext);
+  const { allPost } = useContext(PostContext);
+  console.log('posts', allPost)
   return (
-    <div>ShowPost</div>
+    <div className='show-post-container'>
+      {allPost.map((post) => {
+        return <div key={post._id}>
+          <img src={post?.SelectedFile} width={300} height={300}/>
+        </div>
+      })}
+    </div>
   )
 }
 
