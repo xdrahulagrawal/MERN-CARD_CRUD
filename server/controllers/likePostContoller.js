@@ -8,7 +8,8 @@ export const likePost = async (req, res) => {
     }
     try {
         const post = await Posts.findById(id);
-        const updatedPost = await Posts.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 },{new :true});
+        const updatedPost = await Posts.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 }, { new: true });
+        console.log({ updatedPost });
         res.json(updatedPost)
     } catch (error) {
         console.error('Update Posts')

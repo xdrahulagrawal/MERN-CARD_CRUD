@@ -1,43 +1,75 @@
-.show-post-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap:30px;
-    max-height: 600px;
-    overflow-y: scroll;
+.show-post-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 30px;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 
 
-.show-post-container-item{
+.show-post-container-item {
   height: 292px;
   background: whitesmoke;
   border-radius: 4px;
 }
 
-.show-post-sub-container-1{
+.show-post-sub-container-1 {
   display: flex;
   justify-content: space-around;
   margin-left: 0px;
 }
-.show-post-sub-container-2{
+
+.show-post-sub-container-2 {
   display: flex;
   justify-content: space-around;
   margin-left: 0px;
 }
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
- 
- ::-webkit-scrollbar-track {
-   background: #f1f1f1;
- }
- 
- ::-webkit-scrollbar-thumb {
-   background: #888;
-   border-radius: 5px;
- }
- 
- ::-webkit-scrollbar-thumb:hover {
-   background: #555;
- }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.like-btn {
+  color: blue;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.delete-btn {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.edit-btn {
+  background-color: blue;
+  border: 1px solid blue;
+}

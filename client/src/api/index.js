@@ -35,3 +35,12 @@ export const _editPosts = async (id,data) => {
         console.error("_editPosts", error)
     }
 }
+
+export const _likedPosts = async (id) => {
+    try {
+        const response = await axios.put(`${URL}/${id}/likePost`)
+        return response.status===200 ? response.data : []
+    } catch (error) {
+        console.error("_likedPosts", error)
+    }
+}

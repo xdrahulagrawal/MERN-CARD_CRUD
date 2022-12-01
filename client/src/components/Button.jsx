@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({method,postId,label}) {
+function Button({method,postId,label,className}) {
   return (
-    <button onClick={() => method(postId)}>{label}</button>
+    <button onClick={() => method(postId)} className={className}>{label}</button>
   )
 }
 
