@@ -7,6 +7,23 @@
     overflow-y: scroll;
 }
 
+
+.show-post-container-item{
+  height: 292px;
+  background: whitesmoke;
+  border-radius: 4px;
+}
+
+.show-post-sub-container-1{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 0px;
+}
+.show-post-sub-container-2{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 0px;
+}
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
