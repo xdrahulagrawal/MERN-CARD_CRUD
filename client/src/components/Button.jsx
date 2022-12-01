@@ -6,4 +6,4 @@ function Button({method,postId,label}) {
   )
 }
 
-export default Button
+export default Button;

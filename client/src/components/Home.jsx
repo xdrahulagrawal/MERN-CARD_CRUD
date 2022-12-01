@@ -10,7 +10,7 @@ function Home() {
 
   const [allPost, setAllPost] = useState([]);
   const [isFlag,setFlag]=useState(true)
-
+  const [postID,setPostID] = useState()
 
   const getposts = async () => {
     const result = await _getPosts()
@@ -26,8 +26,8 @@ function Home() {
   
   return (
     <div className='home-container'>
-      <CreatePost setFlag={setFlag} isFlag={isFlag}/>
-      <PostContext.Provider value={{ allPost,getposts }}>
+      <CreatePost setFlag={setFlag} isFlag={isFlag} postID={postID} allPost={allPost}/>
+      <PostContext.Provider value={{ allPost,getposts,setPostID }}>
         <ShowPost />
       </PostContext.Provider>
     </div>

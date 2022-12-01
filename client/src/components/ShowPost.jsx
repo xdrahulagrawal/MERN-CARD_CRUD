@@ -1,22 +1,33 @@
 import React, { useContext } from 'react'
 import { PostContext } from './Home';
-import { _deletePosts } from '../api';
+import { _deletePosts, _editPosts } from '../api';
 import '../assests/styles/showpost.css'
 import Button from './Button';
 
 function ShowPost() {
-  const { allPost, getposts } = useContext(PostContext);
+  const { allPost, getposts, setPostID } = useContext(PostContext);
 
   const _capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    return string?.charAt(0)?.toUpperCase() + string?.slice(1);
   }
 
-  const _deletePost = async (id) => {
+  const _deletePostHandle = async (id) => {
+    if(window.confirm('Are you sure you want to delete')){
+      try {
+        await _deletePosts(id);
+        getposts()
+      } catch (error) {
+        console.error('_deletePost', error)
+      }
+    } }
+
+  const _editPostHandle = async (id) => {
     try {
-      await _deletePosts(id);
+      setPostID(id)
+      await _editPosts(id);
       getposts()
     } catch (error) {
-      console.error('_deletePost', error)
+      console.error('_editPostHandle', error)
     }
   }
 
@@ -30,8 +41,8 @@ function ShowPost() {
             <p><b>Like :</b> {post?.likeCount}</p>
           </div>
           <div className='show-post-sub-container-2'>
-            <Button method={_deletePost} postId={post._id} label='Delete' />
-            <Button postId={post._id} label='Edit' />
+            <Button method={_deletePostHandle} postId={post._id} label='Delete' />
+            <Button method={_editPostHandle} postId={post._id} label='Edit' />
           </div>
         </div>
       })}

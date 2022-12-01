@@ -27,3 +27,11 @@ export const _deletePosts = async (id) => {
         console.error("_sendPosts", error)
     }
 }
+export const _editPosts = async (id,data) => {
+    try {
+        const response = await axios.put(`${URL}/${id}`,data)
+        return response.status===200 ? response.data : []
+    } catch (error) {
+        console.error("_editPosts", error)
+    }
+}
