@@ -30,7 +30,7 @@ export const updatePost = async (req, res) => {
         return res.status(404).send({ message: 'No post with that id' })
     }
     try {
-        const updatePost = await Posts.findByIdAndUpdate(_id, post, { new: true })
+        const updatePost = await Posts.findByIdAndUpdate(_id, {...post,_id}, { new: true })
         res.json(updatePost)
     } catch (error) {
         console.error('Update Posts')
