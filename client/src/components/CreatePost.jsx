@@ -3,15 +3,17 @@ import FileBase from 'react-file-base64'
 import { _editPosts, _sendPosts } from '../api'
 import '../assests/styles/createpost.css'
 
-
+const intinialValue = { creator: '', title: '', message: '', tags: '', SelectedFile: '' }
 function CreatePost({ isFlag, setFlag, allPost, postID }) {
-  const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', SelectedFile: '' });
-  
+  const [postData, setPostData] = useState(intinialValue);
+
   const _handleSubmit = async () => {
     if (postID) {
       await _editPosts(postID, postData)
+      setPostData(intinialValue)
     } else {
       await _sendPosts(postData);
+      setPostData(intinialValue)
     }
   }
 
